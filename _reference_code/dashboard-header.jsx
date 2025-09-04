@@ -40,30 +40,30 @@ export default function DashboardHeader({
   const getRoleIcon = (role) => {
     switch (role) {
       case "head":
-        return <Bus className="h-5 w-5" />
+        return <Bus className="text-white h-5 w-5" />;
       case "admin":
-        return <UserCog className="h-5 w-5" />
+        return <UserCog className="text-white h-5 w-5" />;
       case "mazer":
-        return <Presentation className="h-5 w-5" />
+        return <Presentation className="text-white h-5 w-5" />;
       case "assistant":
-        return <Users className="h-5 w-5" />
+        return <Users className="text-white h-5 w-5" />;
       default:
-        return <UserIcon className="h-5 w-5" />
+        return <UserIcon className="text-white h-5 w-5" />;
     }
   };
 
   const getRoleColor = (role) => {
     switch (role) {
       case "head":
-        return "bg-primary text-primary-foreground";
+        return "bg-gradient-to-r from-purple-500 to-indigo-600";
       case "admin":
-        return "bg-destructive text-destructive-foreground";
+        return "bg-gradient-to-r from-blue-500 to-cyan-600";
       case "mazer":
-        return "bg-warning text-warning-foreground";
+        return "bg-gradient-to-r from-orange-500 to-red-600";
       case "assistant":
-        return "bg-success text-success-foreground";
+        return "bg-gradient-to-r from-green-500 to-emerald-600";
       default:
-        return "bg-secondary text-secondary-foreground";
+        return "bg-gradient-to-r from-gray-500 to-slate-600";
     }
   };
 
@@ -84,7 +84,7 @@ export default function DashboardHeader({
   };
 
   return (
-    <header className="bg-background/90 backdrop-blur-xl border-b sticky top-0 z-50">
+    <header className="bg-white/90 backdrop-blur-xl shadow-modern border-b border-gray-200/50 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
@@ -92,8 +92,8 @@ export default function DashboardHeader({
               {getRoleIcon(safeUser.role)}
             </div>
             <div className="space-y-1">
-              <h1 className="text-2xl font-bold text-foreground">{title}</h1>
-              <p className="text-sm text-muted-foreground font-medium">{subtitle}</p>
+              <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
+              <p className="text-sm text-gray-600 font-medium">{subtitle}</p>
             </div>
           </div>
           
@@ -101,7 +101,7 @@ export default function DashboardHeader({
             {children}
             
             {/* Date and Time */}
-            <div className="hidden md:flex items-center space-x-4 text-sm text-muted-foreground">
+            <div className="hidden md:flex items-center space-x-4 text-sm text-gray-600">
               <div className="flex items-center space-x-2">
                 <Calendar className="h-4 w-4" />
                 <span className="font-medium">{getCurrentDate()}</span>
@@ -115,15 +115,16 @@ export default function DashboardHeader({
             {/* User Info */}
             <div className="flex items-center space-x-3">
               <div className="hidden sm:block text-right">
-                <p className="text-sm font-semibold text-foreground">{safeUser.name}</p>
-                <p className="text-xs text-muted-foreground capitalize">{safeUser.role}</p>
+                <p className="text-sm font-semibold text-gray-900">{safeUser.name}</p>
+                <p className="text-xs text-gray-500 capitalize">{safeUser.role}</p>
               </div>
               
               <Button
                 variant="ghost"
                 onClick={() => logoutMutation.mutate()}
                 disabled={logoutMutation.isPending}
-                              >
+                className="btn-modern text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-xl px-4 py-2 transition-all duration-200"
+              >
                 {logoutMutation.isPending ? (
                   <div className="spinner-modern w-4 h-4 mr-2"></div>
                 ) : (

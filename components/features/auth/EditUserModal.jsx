@@ -63,15 +63,15 @@ export default function EditUserModal({ user, open, onOpenChange, onUserUpdated 
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor="name" className="text-right">Name</Label>
             <Input id="name" value={formData.name || ''} onChange={handleInputChange} className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="text-right">Email</Label>
             <Input id="email" type="email" value={formData.email || ''} onChange={handleInputChange} className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="role">Role</Label>
+            <Label htmlFor="role" className="text-right">Role</Label>
             <Select onValueChange={handleRoleChange} value={formData.role || 'staff'}>
               <SelectTrigger className="col-span-3">
                 <SelectValue placeholder="Select a role" />
@@ -87,7 +87,7 @@ export default function EditUserModal({ user, open, onOpenChange, onUserUpdated 
             </Select>
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="department">Department</Label>
+            <Label htmlFor="department" className="text-right">Department</Label>
             <Input id="department" value={formData.department || ''} onChange={handleInputChange} className="col-span-3" />
           </div>
         </div>

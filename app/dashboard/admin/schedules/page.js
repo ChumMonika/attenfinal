@@ -46,7 +46,7 @@ const ScheduleForm = ({ schedule, onSave, onCancel, courses, teachers }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="courseId" className="block text-sm font-medium mb-1">Course</label>
+        <label htmlFor="courseId" className="block text-sm font-medium text-gray-700 mb-1">Course</label>
         <Select name="courseId" value={formData.courseId} onValueChange={(value) => handleSelectChange('courseId', value)}>
           <SelectTrigger>
             <SelectValue placeholder="Select a course" />
@@ -59,7 +59,7 @@ const ScheduleForm = ({ schedule, onSave, onCancel, courses, teachers }) => {
         </Select>
       </div>
       <div>
-        <label htmlFor="teacherId" className="block text-sm font-medium mb-1">Teacher</label>
+        <label htmlFor="teacherId" className="block text-sm font-medium text-gray-700 mb-1">Teacher</label>
         <Select name="teacherId" value={formData.teacherId} onValueChange={(value) => handleSelectChange('teacherId', value)}>
           <SelectTrigger>
             <SelectValue placeholder="Select a teacher" />
@@ -72,7 +72,7 @@ const ScheduleForm = ({ schedule, onSave, onCancel, courses, teachers }) => {
         </Select>
       </div>
       <div>
-        <label htmlFor="day" className="block text-sm font-medium mb-1">Day</label>
+        <label htmlFor="day" className="block text-sm font-medium text-gray-700 mb-1">Day</label>
         <Select name="day" value={formData.day} onValueChange={(value) => handleSelectChange('day', value)}>
             <SelectTrigger>
               <SelectValue placeholder="Select Day" />
@@ -87,11 +87,11 @@ const ScheduleForm = ({ schedule, onSave, onCancel, courses, teachers }) => {
         </Select>
       </div>
       <div>
-        <label htmlFor="startTime" className="block text-sm font-medium mb-1">Start Time</label>
+        <label htmlFor="startTime" className="block text-sm font-medium text-gray-700 mb-1">Start Time</label>
         <Input type="time" id="startTime" name="startTime" value={formData.startTime} onChange={handleChange} />
       </div>
       <div>
-        <label htmlFor="endTime" className="block text-sm font-medium mb-1">End Time</label>
+        <label htmlFor="endTime" className="block text-sm font-medium text-gray-700 mb-1">End Time</label>
         <Input type="time" id="endTime" name="endTime" value={formData.endTime} onChange={handleChange} />
       </div>
       <div className="flex justify-end space-x-2 pt-4">
@@ -224,7 +224,7 @@ export default function ScheduleManagementPage() {
   if (isLoading) {
     return (
       <div className="flex h-full items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-teal-600" />
       </div>
     );
   }
@@ -255,15 +255,15 @@ export default function ScheduleManagementPage() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDeleteSchedule} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">Delete</AlertDialogAction>
+            <AlertDialogAction onClick={handleDeleteSchedule} className="bg-red-600 hover:bg-red-700">Delete</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
 
       <header className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold">Schedule Management</h1>
-          <p className="text-muted-foreground">Manage course and teacher schedules.</p>
+          <h1 className="text-2xl font-bold text-gray-800">Schedule Management</h1>
+          <p className="text-gray-500">Manage course and teacher schedules.</p>
         </div>
         <Button asChild variant="outline">
           <Link href="/dashboard/admin/tasks">
@@ -276,8 +276,8 @@ export default function ScheduleManagementPage() {
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle className="text-primary">All Schedules</CardTitle>
-            <Button  onClick={() => setAddModalOpen(true)}>
+            <CardTitle className="text-teal-700">All Schedules</CardTitle>
+            <Button className="bg-teal-600 hover:bg-teal-700" onClick={() => setAddModalOpen(true)}>
               <PlusCircle className="mr-2 h-4 w-4" /> Add Schedule
             </Button>
           </div>
@@ -296,7 +296,7 @@ export default function ScheduleManagementPage() {
               </TableHeader>
               <TableBody>
                 {scheduleDisplayData.length === 0 ? (
-                  <TableRow><TableCell colSpan={5} className="text-center text-muted-foreground py-8">No schedules found.</TableCell></TableRow>
+                  <TableRow><TableCell colSpan={5} className="text-center text-gray-500 py-8">No schedules found.</TableCell></TableRow>
                 ) : scheduleDisplayData.map((schedule) => (
                   <TableRow key={schedule.id}>
                     <TableCell className="font-medium">{schedule.courseName}</TableCell>

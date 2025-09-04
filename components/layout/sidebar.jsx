@@ -14,14 +14,14 @@ const NavLink = ({ href, children, icon: Icon, activePaths }) => {
     <Link 
       href={href} 
       className={`flex items-center px-3 py-2 rounded-lg font-medium transition-all ${
-        isActive
-          ? 'bg-primary text-primary-foreground shadow-sm'
-          : 'text-foreground hover:bg-accent hover:text-accent-foreground'
+        isActive 
+          ? 'bg-[#0F766E] text-white shadow-sm' 
+          : 'text-gray-700 hover:bg-teal-50 hover:text-teal-700'
       }`}
     >
       {Icon && (
         <Icon 
-          className={`h-5 w-5 mr-3 ${ isActive ? 'text-primary-foreground' : 'text-primary' }`} 
+          className={`h-5 w-5 mr-3 ${ isActive ? 'text-white' : 'text-teal-600' }`} 
         />
       )}
       {children}
@@ -36,9 +36,9 @@ export default function Sidebar() {
   const adminTaskPaths = ['/dashboard/admin/tasks', '/dashboard/admin/users', '/dashboard/admin/schedules'];
 
   return (
-    <aside className="w-64 bg-background border-r flex flex-col p-4 min-h-screen sticky top-0">
+    <aside className="w-64 bg-gray-50 border-r border-gray-200 flex flex-col p-4 min-h-screen sticky top-0">
       <div className="flex items-center mb-10">
-        <span className="text-2xl font-bold text-primary">University System</span>
+        <span className="text-2xl font-bold text-teal-700">University System</span>
       </div>
 
       <nav className="flex flex-col gap-2 flex-1">
@@ -62,7 +62,7 @@ export default function Sidebar() {
       <div className="mt-auto">
         <button 
           onClick={logout} 
-          className="w-full flex items-center px-3 py-2 rounded-lg text-destructive font-medium hover:bg-destructive/10 transition"
+          className="w-full flex items-center px-3 py-2 rounded-lg text-red-600 font-medium hover:bg-red-100 transition"
         >
           Logout
         </button>

@@ -7,11 +7,11 @@ const TaskCard = ({ href, icon: Icon, title, description }) => (
     <Link href={href} passHref>
         <Card className="hover:shadow-lg transition-shadow">
             <CardHeader className="flex flex-col items-center text-center p-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                    <Icon className="h-8 w-8 text-primary" />
+                <div className="w-16 h-16 bg-teal-50 rounded-full flex items-center justify-center mb-4">
+                    <Icon className="h-8 w-8 text-teal-600" />
                 </div>
-                <CardTitle  className="font-semibold">{title}</CardTitle>
-                <p className="text-muted-foreground">{description}</p>
+                <CardTitle  className="font-semibold text-gray-700">{title}</CardTitle>
+                <p className="text-gray-600">{description}</p>
             </CardHeader>
         </Card>
     </Link>
@@ -27,9 +27,9 @@ export default function AdminTasksPage() {
 
     return (
         <div className="space-y-8">
-            <header className="bg-primary text-primary-foreground p-6 rounded-lg shadow-md">
+            <header className="bg-teal-700 text-white p-6 rounded-lg shadow-md">
                 <h1 className="text-2xl font-bold">Administrative Tasks - Manage system operations</h1>
-                <p className="text-primary-foreground/80 mt-2"></p>
+                <p className="text-teal-100 mt-2"></p>
             </header>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {tasks.map((task) => (

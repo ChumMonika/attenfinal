@@ -71,7 +71,7 @@ export default function LoginForm() {
                 required
               />
             </div>
-            {error && <p className="text-sm text-destructive">{error}</p>}
+            {error && <p className="text-red-500 text-sm">{error}</p>}
           </div>
         </CardContent>
         <CardFooter>
